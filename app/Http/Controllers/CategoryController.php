@@ -31,12 +31,12 @@ class CategoryController extends Controller
     }
     public function store()
     {
-        function recursive_add($array) {
-            $array = array_filter($array);
-            foreach ($array as $category) {
+        function add($cat) {
+            $cat = array_filter($cat);
+            foreach ($cat as $category) {
                 if (!empty($category) && str_contains($category, ',')) {
                     $arr = explode(",", $category);
-                    recursive_add($arr);
+                    add($arr);
                     continue;
                 }
                 $new_category = new Category();
@@ -58,8 +58,8 @@ class CategoryController extends Controller
             "cat_name" => "required|array|min:1"
         ])['cat_name'];
         
-        recursive_add($cat_name);
-        
+        add($cat_name);
+                
         return redirect('/complete');
     }
 

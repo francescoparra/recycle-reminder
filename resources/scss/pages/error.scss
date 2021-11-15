@@ -1,0 +1,27 @@
+.error-section{
+    min-height: 500px;
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1{
+        margin-bottom: 0.6rem;
+    }
+    h3{
+        font-weight: 600;
+        a{
+            text-decoration: none;
+            color: #4ee44e;
+        }
+        a:hover{
+            color: #20d420;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .error-section{
+        min-height: 150px;
+    }
+}
