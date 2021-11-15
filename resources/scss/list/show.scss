@@ -1,0 +1,131 @@
+.no-list {
+    margin-top: 3rem;
+    text-align: center;
+    min-height: 480px;
+
+    a {
+        color: black;
+        border-bottom: 1px solid black;
+        text-decoration: inherit;
+    }
+}
+
+.list-section {
+    padding: 2rem 1.5rem;
+    min-height: 530px;
+
+    .list-main {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        width: 100%;
+        max-width: 40rem;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-radius: 0.75rem;
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .list-div {
+            margin-bottom: 1rem;
+
+            .type-list-div {
+                margin: 1rem 0rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .single-list-div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid black;
+                
+                .day,
+                .category,
+                .time {
+                    width: 100%;
+                    p {
+                        margin-bottom: 0.5rem;
+                        margin-top: 0.5rem;
+                    }
+                }
+                .day{
+                   max-width: 50px;
+                }
+                .category {
+                    display: flex;
+                    justify-content: left;
+                    text-align: left;
+                    max-width: 83.7px;
+                }
+
+                .time {
+                    display: flex;
+                    justify-content: left;
+                    max-width: 50px; 
+                }
+
+                .delete {
+                    display: flex;
+                    justify-content: center;
+                    width: 60.8px;
+                }
+            }
+
+            .cancel-button {
+                cursor: pointer;
+                background: none;
+                border: 0px;
+            }
+        }
+
+        .filter{
+            display: flex;
+            align-items: center;
+            margin: 1rem 0rem;
+            p{
+                margin-left: 1rem;
+            }
+            button{
+                padding: 1rem;
+                cursor: pointer;
+            }
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .add {
+                color: white;
+                text-decoration: none;
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+                background-color: #4ee44e;
+            }
+
+            .add:hover {
+                background-color: #20d420;
+            }
+
+            .remove {
+                color: white;
+                text-decoration: none;
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+                background-color: #ff726f;
+            }
+
+            .remove:hover {
+                background-color: #ff2a26;
+            }
+        }
+    }
+}

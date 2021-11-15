@@ -1,0 +1,88 @@
+.days-delete-section {
+    padding: 2rem 1.5rem;
+    min-height: 545px;
+
+    .days-delete-main {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-radius: 0.75rem;
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .days-delete-form {
+            margin-top: 1.5rem;
+        }
+
+        .days-delete-div {
+            margin-bottom: 1.5rem;
+
+            .days-delete-input-div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid black;
+
+                h2 {
+                    margin: 0.5rem 1rem;
+                }
+
+                .delete-button {
+                    font-size: 1rem;
+                    margin-top: 0.3rem;
+                    cursor: pointer;
+                    background: none;
+                    border: 0px;
+                }
+            }
+        }
+
+        .buttons-div {
+            display: flex;
+            justify-content: space-around;
+
+            .back-button {
+                text-decoration: inherit;
+                line-height: inherit;
+                color: white;
+                background-color: #4ee44e;
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                font-size: 100%;
+                border: none;
+            }
+
+            .back-button:hover {
+                background-color: #20d420;
+            }
+
+            .next-button {
+                text-decoration: inherit;
+                line-height: inherit;
+                color: black;
+                background-color: #fff127;
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                font-size: 100%;
+                border: none;
+            }
+
+            .next-button:hover {
+                background-color: #ebdc00;
+            }
+        }
+        .no-delete{
+            text-align: center;
+            margin: 2.5rem 0rem;
+        }
+    }
+}

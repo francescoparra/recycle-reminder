@@ -1,0 +1,64 @@
+.register-section {
+    padding: 2rem 1.5rem;
+    min-height: 545px;
+
+    .register-main {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(243, 244, 246);
+        border: 1px solid rgba(229, 231, 235);
+        border-radius: 0.75rem;
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .register-form {
+            margin-top: 2.5rem;
+        }
+
+        .input-div {
+            margin-bottom: 1.5rem;
+
+            .label {
+                color: rgba(55, 65, 81);
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 0.75rem;
+                line-height: 1rem;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .input-element {
+                padding: 0.5rem;
+                border: 1px solid rgba(156, 163, 175);
+                width: 100%;
+            }
+            .error-message{
+                color: red;
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .submit-button {
+                line-height: inherit;
+                color: white;
+                background-color: #4ee44e;
+                padding: 0.5rem 1rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                font-size: 100%;
+                border: none;
+            }
+            .submit-button:hover{
+                background-color: #20d420;
+            }
+        }
+    }
+}

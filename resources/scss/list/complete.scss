@@ -1,0 +1,97 @@
+.complete-section {
+    padding: 2rem 1.5rem;
+    min-height: 545px;
+
+    .complete-main {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        max-width: 38rem;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-radius: 0.75rem;
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .complete-form {
+            margin-top: 1.5rem;
+            .complete-div {
+                .complete-input-div{
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid black;
+                    
+                    .dropdown-complete{
+                        padding: 0.5rem;
+                        margin: 0.5rem;
+                    }
+                    
+                    h2{
+                        margin: 0.5rem 1rem;
+                    }
+                }
+                
+                .textbar{
+                    padding: 0.5rem;
+                    margin: 1rem;
+                    font-size: 1rem;
+                }
+                
+                
+            }
+            .error{
+                color: red;
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+            }
+            .button-div{
+                margin-top: 1rem;
+                text-align: center;
+                .submit-button {
+                    margin: 0rem 1rem;
+                    line-height: inherit;
+                    color: white;
+                    background-color: #4ee44e;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    font-size: 100%;
+                    border: none;
+                }
+                .submit-button:hover{
+                    background-color: #20d420;
+                }
+                .complete-button{
+                    text-decoration: none;
+                    color: white;
+                    line-height: inherit;
+                    background-color: #3ea4c4;
+                    padding: 0.4rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                }
+                .complete-button:hover{
+                    background-color: #30849e;
+                }
+                .row-button{
+                    margin: 0rem 1rem;
+                    line-height: inherit;
+                    color: rgba(55, 65, 81);
+                    background-color: #fff127;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    font-size: 100%;
+                    border: none;
+                }
+                .row-button:hover{
+                    background-color: #ebdc00;
+                }
+            }
+        }
+    }
+}

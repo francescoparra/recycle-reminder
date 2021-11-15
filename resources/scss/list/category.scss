@@ -1,0 +1,98 @@
+.category-section {
+    padding: 2rem 1.5rem;
+    min-height: 545px;
+
+    .category-main {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        max-width: 38rem;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid black;
+        border-radius: 0.75rem;
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .category-form {
+            margin-top: 1.5rem;
+
+            .category-div {
+                margin-bottom: 1.5rem;
+                .category-input-div {
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid black;
+
+                    h2 {
+                        margin: 0.5rem 1rem;
+                    }
+                }
+
+                .textbar {
+                    padding: 0.5rem;
+                    margin: 1rem;
+                    font-size: 1rem;
+                }
+
+                .error {
+                    color: red;
+                    margin-top: 0.5rem;
+                    font-size: 0.8rem;
+                }
+
+            }
+            .category-buttons {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .submit-button {
+                    line-height: inherit;
+                    color: white;
+                    background-color: #4ee44e;
+                    padding: 0.6rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    font-size: 100%;
+                    border: none;
+                }
+                
+                .submit-button:hover {
+                    background-color: #20d420;
+                }
+
+                .complete-button{
+                    text-decoration: none;
+                    color: white;
+                    line-height: inherit;
+                    background-color: #3ea4c4;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    border: none;
+                }
+                .complete-button:hover{
+                    background-color: #30849e;
+                }
+
+                .delete-button {
+                    text-decoration: none;
+                    color: white;
+                    line-height: inherit;
+                    background-color: #ff726f;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.3rem;
+                    cursor: pointer;
+                    border: none;
+                }
+    
+                .delete-button:hover {
+                    background-color: #ff2a26;
+                }
+            }
+        }
+    }
+}

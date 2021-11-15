@@ -1,0 +1,703 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.main-section {
+  padding: 2rem 1.5rem;
+}
+.main-section .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.3rem solid #f3f4f6;
+  border-radius: 0.75rem;
+}
+.main-section .navbar img {
+  width: 35px;
+}
+.main-section .navbar .title-div .title {
+  margin-left: 0.25rem;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: inherit;
+}
+.main-section .navbar .user-links-div {
+  display: flex;
+}
+.main-section .navbar .user-links-div .user-links {
+  padding: 0rem 0.5rem;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-decoration: inherit;
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.main-section .navbar .user-links-div .user-links:hover {
+  color: #4ee44e;
+}
+.main-section .navbar .user-links-div .logout-form {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+.main-section .navbar .user-links-div .logout-form img {
+  margin-left: 0.25rem;
+}
+.main-section .footer {
+  background-color: #f3f4f6;
+  border: 1px solid gainsboro;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 2rem 2.5rem;
+  margin-top: 4rem;
+}
+.main-section .footer img {
+  margin-bottom: 1.5rem;
+  width: 140px;
+}
+.main-section .footer h5 {
+  font-size: x-large;
+}
+.main-section .footer p {
+  font-size: small;
+  margin-top: 0.75rem;
+}
+
+.home-section {
+  margin-top: 5rem;
+  min-height: 450px;
+}
+.home-section .home-title {
+  color: black;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: bold;
+}
+.home-section .caption {
+  margin: 2.5rem 0rem;
+  text-align: center;
+  line-height: 2rem;
+}
+.home-section .caption h3 {
+  font-weight: 500;
+}
+.home-section .sign {
+  text-align: center;
+}
+.home-section .sign .sign {
+  font-weight: 600;
+}
+
+.register-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.register-section .register-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+.register-section .register-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.register-section .register-main .register-form {
+  margin-top: 2.5rem;
+}
+.register-section .register-main .input-div {
+  margin-bottom: 1.5rem;
+}
+.register-section .register-main .input-div .label {
+  color: #374151;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.register-section .register-main .input-div .input-element {
+  padding: 0.5rem;
+  border: 1px solid #9ca3af;
+  width: 100%;
+}
+.register-section .register-main .input-div .error-message {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.register-section .register-main .input-div .submit-button {
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.register-section .register-main .input-div .submit-button:hover {
+  background-color: #20d420;
+}
+
+.success-message {
+  position: fixed;
+  background-color: #4ee44e;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-radius: 0.75rem;
+  bottom: 0.75rem;
+  right: 0.75rem;
+}
+
+.days-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.days-section .days-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.days-section .days-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.days-section .days-main .days-form {
+  margin-top: 1.5rem;
+}
+.days-section .days-main .days-form .days-div {
+  margin-bottom: 1.5rem;
+}
+.days-section .days-main .days-form .days-div .days-input-div {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.days-section .days-main .days-form .days-div .days-input-div h2 {
+  margin: 0.5rem 1rem;
+}
+.days-section .days-main .days-form .days-div .error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.days-section .days-main .days-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.days-section .days-main .days-buttons .submit-button {
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.6rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.days-section .days-main .days-buttons .submit-button:hover {
+  background-color: #20d420;
+}
+.days-section .days-main .days-buttons .complete-button {
+  text-decoration: none;
+  color: white;
+  line-height: inherit;
+  background-color: #3ea4c4;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: none;
+}
+.days-section .days-main .days-buttons .complete-button:hover {
+  background-color: #30849e;
+}
+.days-section .days-main .days-buttons .delete-button {
+  text-decoration: none;
+  color: white;
+  line-height: inherit;
+  background-color: #ff726f;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: none;
+}
+.days-section .days-main .days-buttons .delete-button:hover {
+  background-color: #ff2a26;
+}
+
+.category-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.category-section .category-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.category-section .category-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.category-section .category-main .category-form {
+  margin-top: 1.5rem;
+}
+.category-section .category-main .category-form .category-div {
+  margin-bottom: 1.5rem;
+}
+.category-section .category-main .category-form .category-div .category-input-div {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.category-section .category-main .category-form .category-div .category-input-div h2 {
+  margin: 0.5rem 1rem;
+}
+.category-section .category-main .category-form .category-div .textbar {
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+.category-section .category-main .category-form .category-div .error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.category-section .category-main .category-form .category-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.category-section .category-main .category-form .category-buttons .submit-button {
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.6rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.category-section .category-main .category-form .category-buttons .submit-button:hover {
+  background-color: #20d420;
+}
+.category-section .category-main .category-form .category-buttons .complete-button {
+  text-decoration: none;
+  color: white;
+  line-height: inherit;
+  background-color: #3ea4c4;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: none;
+}
+.category-section .category-main .category-form .category-buttons .complete-button:hover {
+  background-color: #30849e;
+}
+.category-section .category-main .category-form .category-buttons .delete-button {
+  text-decoration: none;
+  color: white;
+  line-height: inherit;
+  background-color: #ff726f;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: none;
+}
+.category-section .category-main .category-form .category-buttons .delete-button:hover {
+  background-color: #ff2a26;
+}
+
+.no-list {
+  margin-top: 3rem;
+  text-align: center;
+  min-height: 480px;
+}
+.no-list a {
+  color: black;
+  border-bottom: 1px solid black;
+  text-decoration: inherit;
+}
+
+.list-section {
+  padding: 2rem 1.5rem;
+  min-height: 530px;
+}
+.list-section .list-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  width: 100%;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.list-section .list-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.list-section .list-main .list-div {
+  margin-bottom: 1rem;
+}
+.list-section .list-main .list-div .type-list-div {
+  margin: 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-section .list-main .list-div .single-list-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.list-section .list-main .list-div .single-list-div .day,
+.list-section .list-main .list-div .single-list-div .category,
+.list-section .list-main .list-div .single-list-div .time {
+  width: 100%;
+}
+.list-section .list-main .list-div .single-list-div .day p,
+.list-section .list-main .list-div .single-list-div .category p,
+.list-section .list-main .list-div .single-list-div .time p {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+.list-section .list-main .list-div .single-list-div .day {
+  max-width: 50px;
+}
+.list-section .list-main .list-div .single-list-div .category {
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  max-width: 83.7px;
+}
+.list-section .list-main .list-div .single-list-div .time {
+  display: flex;
+  justify-content: left;
+  max-width: 50px;
+}
+.list-section .list-main .list-div .single-list-div .delete {
+  display: flex;
+  justify-content: center;
+  width: 60.8px;
+}
+.list-section .list-main .list-div .cancel-button {
+  cursor: pointer;
+  background: none;
+  border: 0px;
+}
+.list-section .list-main .filter {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0rem;
+}
+.list-section .list-main .filter p {
+  margin-left: 1rem;
+}
+.list-section .list-main .filter button {
+  padding: 1rem;
+  cursor: pointer;
+}
+.list-section .list-main .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.list-section .list-main .links .add {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: #4ee44e;
+}
+.list-section .list-main .links .add:hover {
+  background-color: #20d420;
+}
+.list-section .list-main .links .remove {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: #ff726f;
+}
+.list-section .list-main .links .remove:hover {
+  background-color: #ff2a26;
+}
+
+.complete-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.complete-section .complete-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.complete-section .complete-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.complete-section .complete-main .complete-form {
+  margin-top: 1.5rem;
+}
+.complete-section .complete-main .complete-form .complete-div .complete-input-div {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.complete-section .complete-main .complete-form .complete-div .complete-input-div .dropdown-complete {
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+.complete-section .complete-main .complete-form .complete-div .complete-input-div h2 {
+  margin: 0.5rem 1rem;
+}
+.complete-section .complete-main .complete-form .complete-div .textbar {
+  padding: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+.complete-section .complete-main .complete-form .error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.complete-section .complete-main .complete-form .button-div {
+  margin-top: 1rem;
+  text-align: center;
+}
+.complete-section .complete-main .complete-form .button-div .submit-button {
+  margin: 0rem 1rem;
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.complete-section .complete-main .complete-form .button-div .submit-button:hover {
+  background-color: #20d420;
+}
+.complete-section .complete-main .complete-form .button-div .complete-button {
+  text-decoration: none;
+  color: white;
+  line-height: inherit;
+  background-color: #3ea4c4;
+  padding: 0.4rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.complete-section .complete-main .complete-form .button-div .complete-button:hover {
+  background-color: #30849e;
+}
+.complete-section .complete-main .complete-form .button-div .row-button {
+  margin: 0rem 1rem;
+  line-height: inherit;
+  color: #374151;
+  background-color: #fff127;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.complete-section .complete-main .complete-form .button-div .row-button:hover {
+  background-color: #ebdc00;
+}
+
+.days-delete-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.days-delete-section .days-delete-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.days-delete-section .days-delete-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.days-delete-section .days-delete-main .days-delete-form {
+  margin-top: 1.5rem;
+}
+.days-delete-section .days-delete-main .days-delete-div {
+  margin-bottom: 1.5rem;
+}
+.days-delete-section .days-delete-main .days-delete-div .days-delete-input-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.days-delete-section .days-delete-main .days-delete-div .days-delete-input-div h2 {
+  margin: 0.5rem 1rem;
+}
+.days-delete-section .days-delete-main .days-delete-div .days-delete-input-div .delete-button {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  background: none;
+  border: 0px;
+}
+.days-delete-section .days-delete-main .buttons-div {
+  display: flex;
+  justify-content: space-around;
+}
+.days-delete-section .days-delete-main .buttons-div .back-button {
+  text-decoration: inherit;
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.days-delete-section .days-delete-main .buttons-div .back-button:hover {
+  background-color: #20d420;
+}
+.days-delete-section .days-delete-main .buttons-div .next-button {
+  text-decoration: inherit;
+  line-height: inherit;
+  color: black;
+  background-color: #fff127;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.days-delete-section .days-delete-main .buttons-div .next-button:hover {
+  background-color: #ebdc00;
+}
+.days-delete-section .days-delete-main .no-delete {
+  text-align: center;
+  margin: 2.5rem 0rem;
+}
+
+.category-delete-section {
+  padding: 2rem 1.5rem;
+  min-height: 545px;
+}
+.category-delete-section .category-delete-main {
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+}
+.category-delete-section .category-delete-main h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.category-delete-section .category-delete-main .category-delete-div {
+  margin-bottom: 1.5rem;
+}
+.category-delete-section .category-delete-main .category-delete-div .category-delete-form {
+  margin-top: 1rem;
+}
+.category-delete-section .category-delete-main .category-delete-div .category-delete-form .category-delete-input-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+.category-delete-section .category-delete-main .category-delete-div .category-delete-form .category-delete-input-div h2 {
+  margin: 0.5rem 1rem;
+}
+.category-delete-section .category-delete-main .category-delete-div .category-delete-form .category-delete-input-div .delete-button {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  background: none;
+  border: 0px;
+}
+.category-delete-section .category-delete-main .category-delete-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.category-delete-section .category-delete-main .category-delete-buttons .back-button {
+  text-decoration: inherit;
+  line-height: inherit;
+  color: white;
+  background-color: #4ee44e;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.category-delete-section .category-delete-main .category-delete-buttons .back-button:hover {
+  background-color: #20d420;
+}
+.category-delete-section .category-delete-main .category-delete-buttons .next-button {
+  text-decoration: inherit;
+  line-height: inherit;
+  color: black;
+  background-color: #fff127;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 100%;
+  border: none;
+}
+.category-delete-section .category-delete-main .category-delete-buttons .next-button:hover {
+  background-color: #ebdc00;
+}
+.category-delete-section .category-delete-main .no-delete {
+  text-align: center;
+  margin: 2.5rem 0rem;
+}
+
+/*# sourceMappingURL=App.css.map */

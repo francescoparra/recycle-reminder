@@ -1,0 +1,28 @@
+.home-section {
+    margin-top: 5rem;
+    min-height: 450px;
+
+    .home-title {
+        color: black;
+        text-align: center;
+        padding-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    .caption{
+        margin: 2.5rem 0rem;
+        text-align: center;
+        line-height: 2rem;
+        h3{
+            font-weight: 500;
+        }
+    }
+
+    .sign {
+        text-align: center;
+        .sign{
+            font-weight: 600;
+        }
+    }
+    
+}
