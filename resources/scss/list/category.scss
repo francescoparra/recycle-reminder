@@ -31,11 +31,20 @@
                         margin: 0.5rem 1rem;
                     }
                 }
+                .category-textbar-div {
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid black;
 
-                .textbar {
-                    padding: 0.5rem;
-                    margin: 1rem;
-                    font-size: 1rem;
+                    h2 {
+                        margin: 0.5rem 1rem;
+                    }
+                    
+                    .textbar {
+                        padding: 0.5rem;
+                        margin: 1rem;
+                        font-size: 1rem;
+                    }
                 }
 
                 .error {
@@ -93,6 +102,27 @@
                     background-color: #ff2a26;
                 }
             }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .category-buttons{
+        flex-direction: column;
+        button, a{
+            margin: 1rem 0rem;
+        }
+    }
+    h2{
+        font-size: 1.25rem;
+    }
+    .category-textbar-div {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid black;
+        
+        .textbar {
+            padding: 0.5rem;
+            font-size: 1rem;
         }
     }
 }

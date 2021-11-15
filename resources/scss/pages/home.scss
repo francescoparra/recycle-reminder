@@ -20,9 +20,18 @@
 
     .sign {
         text-align: center;
-        .sign{
+        h2{
             font-weight: 600;
         }
     }
-    
+}
+@media screen and (max-width: 768px) {
+    .home-section{
+        margin-top: 2.5rem;
+        .sign{
+            h2{
+                font-size: 1.25rem;
+            }
+        }
+    }
 }

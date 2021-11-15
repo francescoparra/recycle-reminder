@@ -19,7 +19,7 @@
                             <h2>{{ ucfirst($created) }}</h2>
                         </div>
                      @endforeach
-                    <div class="category-input-div">
+                    <div class="category-textbar-div">
                         <h2>Other: </h2>
                         <input class="textbar" type="text" name="cat_name[]" value="{{ old('cat_name[]') }}"
                             placeholder="Something, something, something">

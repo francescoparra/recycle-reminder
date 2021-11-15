@@ -8,7 +8,7 @@
             <p>With Recycle Reminder you can create your own personalized list <br> according to your garbage collection, determining the days, the category and the time of the collection! <br> Any changes? Don't worry, you can modify your list, to keep it always up to date!</p>
         </div>
         <div class="sign">
-            <h2 class="sign">Register or Login to use the app!</h2>
+            <h2>Register or Login to use the app!</h2>
         </div>
     </section>
 </x-layout>
