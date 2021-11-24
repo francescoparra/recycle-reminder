@@ -13,19 +13,17 @@ class DaysController extends Controller
             "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
         ];
 
-        $existing_days = Day::all()->where('user_id', auth()->user()->id);
+        $existingDays = Day::all()->where('user_id', auth()->user()->id)->toArray();
 
-        $array = $existing_days->toArray();
-        if (count($array)>0) {
-            $names = array_merge_recursive ( ...$array )['day_name'];
-        } else {
-            $names = [];
+        if (count($existingDays) > 0) {
+            $existingDays = array_merge_recursive(...$existingDays)['day_name'];
         }
-        if (is_string($names)) {
-            $names = [$names];
+        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach di days.blade.php */
+        if (is_string($existingDays)) {
+            $existingDays = [$existingDays];
         }
 
-        return view('list.days', compact('days', 'names', 'existing_days'));
+        return view('list.days', compact('days', 'existingDays'));
     }
     public function store()
     {
@@ -35,11 +33,11 @@ class DaysController extends Controller
         
         foreach ($days as $day) {
             $newday = new Day;
-            $user_id = auth()->user()->id;
-            $newday->user_id = $user_id;
+            $userId = auth()->user()->id;
+            $newday->user_id = $userId;
             $newday->day_name = $day;
             if (!Day::select("*") 
-                    ->where("user_id", $user_id)
+                    ->where("user_id", $userId)
                     ->where("day_name", $day)
                     ->exists()) {
                 $newday->save();
@@ -50,22 +48,17 @@ class DaysController extends Controller
     }
 
     public function delete(){
-        $existing_days = Day::all()->where('user_id', auth()->user()->id);
-        $array = $existing_days->toArray();
-        if (count($array)>0) {
-            $names = array_merge_recursive ( ...$array )['day_name'];
-        } else {
-            $names = [];
+        $existingDays = Day::all()->where('user_id', auth()->user()->id)->toArray();
+        if (count($existingDays) > 0) {
+            $existingDays = array_merge_recursive(...$existingDays)['day_name'];
         }
-        if (is_string($names)) {
-            $names = [$names];
-        }
-        return view('list.daydelete', compact('existing_days', 'names'));
+        $days = Day::all()->where('user_id', auth()->user()->id);
+        return view('list.daydelete', compact('existingDays', 'days'));
     }
 
     public function destroy($id)
     {
-        $day = Day::findOrFail($id);
+        $day = Day::find($id);
         $day->delete();
 
         return redirect('/daysdelete');

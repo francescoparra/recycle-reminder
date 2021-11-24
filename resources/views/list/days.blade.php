@@ -8,7 +8,7 @@
                 <div class="days-div">
                     @foreach ($days as $day)
                         <div class="days-input-div">
-                            <input type="checkbox" id="checkbox" name="day_name[]" value="{{ $day }}" @if (in_array($day, $names, true)) disabled @endif>
+                            <input type="checkbox" id="checkbox" name="day_name[]" value="{{ $day }}" @if (in_array($day, $existingDays, true)) disabled @endif>
                             <h2>{{ ucfirst($day) }}</h2>
                         </div>
                     @endforeach
@@ -24,7 +24,7 @@
                     <button class="submit-button" type="submit" form="days-form">
                         Submit
                     </button>
-                    @if ($existing_days->count())
+                    @if ($existingDays)
                         <a class="complete-button" href="/category">Categories</a>
                     @endif
                     <a href="/daysdelete" class="delete-button">Delete Days</a>

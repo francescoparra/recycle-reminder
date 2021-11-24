@@ -2,54 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lists;
+use App\Models\GarbageSchedule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
-class ListController extends Controller
+class GarbageScheduleController extends Controller
 {
     public function create()
     {
         $categories = DB::table('categories')->where("user_id", auth()->user()->id)->get();
         $days = DB::table('days')->where("user_id", auth()->user()->id)->get();
 
-        $existing_list = Lists::all()->where("user_id", auth()->user()->id);
+        $existingList = GarbageSchedule::all()->where("user_id", auth()->user()->id);
 
         return view('list.complete', [
             'category' => $categories,
             'days' => $days,
-        ], compact('existing_list'));
+        ], compact('existingList'));
     }
     public function store()
     {
-
         $lists = request()->validate([
             "list" => "required|array|min:1"
         ])["list"];
-
-        function savefunc($list)
-        {
-            $user_id = auth()->user()->id;
-            $day_id = $list[0];
-            $category_id = $list[1];
-            $handle_error = $list[2] ?? $list[2];
-            $list_time = $handle_error;
-            $newlist = new Lists;
-            $newlist->user_id = $user_id;
-            $newlist->day_id = $day_id;
-            $newlist->category_id = $category_id;
-            $newlist->time = $list_time;
-            $day = ucfirst(DB::table('days')->where('id', $day_id)->value('day_name'));
-            if (!Lists::select("*")
-                ->where("day_id", $day_id)
-                ->where("category_id", $category_id)
-                ->exists()) {
-                $newlist->save();
-            } else {
-                throw ValidationException::withMessages(['Error!' =>
-                "A collection already exists on {$day} at {$list_time}."]);
-            }
-        }
 
         foreach ($lists as $list) {
             if ($list == null) {
@@ -59,20 +34,36 @@ class ListController extends Controller
                 return back()->withErrors(['msg' => 'The time field can be up to 22 characters long.']);
             }
         }
-
-        if (count($lists) > 3) {
-            $lists = array_chunk($lists, 3);
-            foreach ($lists as $list) {
-                savefunc($list);
+        $lists = array_chunk($lists, 3);
+        foreach ($lists as $list) {
+            $userId = auth()->user()->id;
+            $dayId = $list[0];
+            $categoryId = $list[1];
+            $handleError = $list[2] ?? $list[2];
+            $listTime = $handleError;
+            $newlist = new GarbageSchedule();
+            $newlist->user_id = $userId;
+            $newlist->day_id = $dayId;
+            $newlist->category_id = $categoryId;
+            $newlist->time = $listTime;
+            if (!GarbageSchedule::select("*")
+                ->where("day_id", $dayId)
+                ->where("category_id", $categoryId)
+                ->exists()) {
+                $newlist->save();
+            } else {
+                $day = ucfirst(DB::table('days')->where('id', $dayId)->value('day_name'));
+                throw ValidationException::withMessages(['Error!' =>
+                "A collection already exists on {$day} at {$listTime}."]);
             }
         }
 
-        savefunc($lists);
         return redirect('/list');
     }
+
     public function show()
     {
-        $lists = Lists::all()->where("user_id", auth()->user()->id);
+        $lists = GarbageSchedule::all()->where("user_id", auth()->user()->id);
 
         foreach ($lists as $list) {
             $list->day = ucfirst(DB::table('days')->where('id', $list->day_id)->value('day_name'));
@@ -83,8 +74,7 @@ class ListController extends Controller
     }
     public function destroy($id)
     {
-
-        $list = Lists::findOrFail($id);
+        $list = GarbageSchedule::find($id);
         $list->delete();
 
         return redirect('/list');

@@ -7,81 +7,76 @@ use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
-    public function create(){
-        
-        $standard_categories=[
+    public function create()
+    {
+
+        $standardCategories = [
             'plastic', 'paper', 'organic', 'glass', 'mixed', 'specials ( Furniture, etc. )'
         ];
 
-        $existing_categories= Category::all()->where('user_id', auth()->user()->id)->toArray();
-        if (count($existing_categories)>0) {
-            $existing_categories = array_merge_recursive ( ...$existing_categories )['cat_name'];
-        } else {
-            $existing_categories = [];
+        $existingCategories = Category::all()->where('user_id', auth()->user()->id)->toArray();
+
+        if (count($existingCategories) > 0) {
+            $existingCategories = array_merge_recursive(...$existingCategories)['cat_name'];
         }
-        if (is_string($existing_categories)) {
-            $existing_categories = [$existing_categories];
+        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel array_diff */
+        if (is_string($existingCategories)) {
+            $existingCategories = [$existingCategories];
         }
 
-        $diff = array_diff($existing_categories, $standard_categories);
+        $diff = array_diff($existingCategories, $standardCategories);
 
-        $category = Category::all();
-
-        return view("list.category", compact('standard_categories', 'existing_categories', 'category', 'diff'));
+        return view("list.category", compact('standardCategories', 'existingCategories',  'diff'));
     }
+    
     public function store()
     {
-        function add($cat) {
-            $cat = array_filter($cat);
-            foreach ($cat as $category) {
-                if (!empty($category) && str_contains($category, ',')) {
-                    $arr = explode(",", $category);
-                    add($arr);
-                    continue;
-                }
-                $new_category = new Category();
-                $user_id = auth()->user()->id;
-                $new_category->user_id = $user_id;
-                $new_category->cat_name = $category;
+        $catName = request()->validate([
+            "cat_name" => "required|array|min:1"
+        ])['cat_name'];
+
+        $catName = array_filter($catName);
+        foreach ($catName as $category) {
+            if (!empty($category) && str_contains($category, ',')) {
+                $category = explode(",", $category);
+            }
+            /* questo if viene usato nel caso l'utente mandi solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach */
+            if (is_string($category)) {
+                $category = [$category];
+            }
+            foreach ($category as $category) {
+                $newCategory = new Category();
+                $userId = auth()->user()->id;
+                $newCategory->user_id = $userId;
+                $newCategory->cat_name = $category;
                 if (!Category::select("*")
-                    ->where("user_id", $user_id)
+                    ->where("user_id", $userId)
                     ->where("cat_name", strtolower($category))
-                    ->exists()) {                
-                    $new_category->save();
+                    ->exists()) {
+                    $newCategory->save();
                 } else {
                     throw ValidationException::withMessages(['Error!' => "That type already exists."]);
                 }
-            };
-        };
-
-        $cat_name = request()->validate([
-            "cat_name" => "required|array|min:1"
-        ])['cat_name'];
-        
-        add($cat_name);
-                
+            }
+        }
         return redirect('/complete');
     }
 
-    public function delete(){
-        $existing_categories= Category::all()->where('user_id', auth()->user()->id)->toArray();
-        if (count($existing_categories)>0) {
-            $existing_categories = array_merge_recursive ( ...$existing_categories )['cat_name'];
-        } else {
-            $existing_categories = [];
-        }
-        if (is_string($existing_categories)) {
-            $existing_categories = [$existing_categories];
+    public function delete()
+    {
+        $existingCategories = Category::all()->where('user_id', auth()->user()->id)->toArray();
+        if (count($existingCategories) > 0) {
+            $existingCategories = array_merge_recursive(...$existingCategories)['cat_name'];
         }
         $categories = Category::all()->where('user_id', auth()->user()->id);
-        return view('list.categorydelete', compact('existing_categories', 'categories'));
+        return view('list.categorydelete', compact('existingCategories', 'categories'));
     }
 
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
+        $category = Category::find($id);
         $category->delete();
-        
+
         return redirect('/categorydelete');
     }
 }

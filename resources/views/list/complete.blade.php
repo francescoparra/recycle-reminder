@@ -39,7 +39,7 @@
                     <button form="complete-form" type="submit" class="submit-button">
                         Submit
                     </button>
-                    @if ($existing_list->count())
+                    @if ($existingList->count())
                         <a class="complete-button" href="/list">List</a>
                     @endif
                     <button form="none" id="newrow" type="submit" class="row-button">

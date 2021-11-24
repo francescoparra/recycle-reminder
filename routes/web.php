@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DaysController;
-use App\Http\Controllers\ListController;
+use App\Http\Controllers\GarbageScheduleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Models\Lists;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,18 +28,18 @@ Route::post('login', [LoginController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth');
 
-Route::get('/list', [ListController::class, 'show'])->middleware('auth');
-Route::delete('list/{list:id}', [ListController::class, 'destroy'])->middleware('auth');
+Route::get('/list', [GarbageScheduleController::class, 'show'])->middleware('auth');
+Route::delete('list/{list}', [GarbageScheduleController::class, 'destroy'])->middleware('auth');
 
 Route::get('days', [DaysController::class, 'create'])->middleware('auth');
 Route::post('days', [DaysController::class, 'store'])->middleware('auth');
 Route::get('daysdelete', [DaysController::class, 'delete'])->middleware('auth');
-Route::delete('daysdelete/{days:id}', [DaysController::class, 'destroy'])->middleware('auth');
+Route::delete('daysdelete/{days}', [DaysController::class, 'destroy'])->middleware('auth');
 
 Route::get('category', [CategoryController::class, 'create'])->middleware('auth');
 Route::post('category', [CategoryController::class, 'store'])->middleware('auth');
 Route::get('categorydelete', [CategoryController::class, 'delete'])->middleware('auth');
-Route::delete('categorydelete/{category:id}', [CategoryController::class, 'destroy'])->middleware('auth');
+Route::delete('categorydelete/{category}', [CategoryController::class, 'destroy'])->middleware('auth');
 
-Route::get('complete', [ListController::class, 'create'])->middleware('auth');
-Route::post('complete', [ListController::class, 'store'])->middleware('auth');
+Route::get('complete', [GarbageScheduleController::class, 'create'])->middleware('auth');
+Route::post('complete', [GarbageScheduleController::class, 'store'])->middleware('auth');

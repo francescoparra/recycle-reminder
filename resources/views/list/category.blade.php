@@ -5,17 +5,17 @@
             <form method="POST" action="/category" class="category-form">
                 @csrf
                 <div class="category-div">
-                    @foreach ($standard_categories as $standard_categories)
+                    @foreach ($standardCategories as $standardCategories)
                         <div class="category-input-div">
-                            <input type="checkbox" name="cat_name[]" value="{{ $standard_categories }}" 
-                            @if (in_array(strtolower($standard_categories), $existing_categories, true)) disabled @endif >
-                            <h2>{{ ucfirst($standard_categories) }}</h2>
+                            <input type="checkbox" name="cat_name[]" value="{{ $standardCategories }}" 
+                            @if (in_array(strtolower($standardCategories), $existingCategories, true)) disabled @endif >
+                            <h2>{{ ucfirst($standardCategories) }}</h2>
                         </div>
                     @endforeach
                     @foreach ($diff as $created)
                         <div class="category-input-div">
                             <input type="checkbox" name="cat_name[]" value="{{ $created }}" 
-                            @if (in_array($created, $existing_categories, true)) disabled @endif >
+                            @if (in_array($created, $existingCategories, true)) disabled @endif >
                             <h2>{{ ucfirst($created) }}</h2>
                         </div>
                      @endforeach
@@ -36,7 +36,7 @@
                     <button type="submit" class="submit-button">
                         Submit
                     </button>
-                    @if ($category->count())
+                    @if ($existingCategories)
                         <a class="complete-button" href="/complete">Complete</a>
                     @endif
                     <a class="delete-button" href="/categorydelete">Delete Category</a>
