@@ -20,7 +20,7 @@ class CategoryController extends Controller
         if (count($existingCategories) > 0) {
             $existingCategories = array_merge_recursive(...$existingCategories)['cat_name'];
         }
-        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel array_diff */
+        /* this if is used in case the user has only one value which would produce a string and thus cause a problem in array_diff */
         if (is_string($existingCategories)) {
             $existingCategories = [$existingCategories];
         }
@@ -41,7 +41,7 @@ class CategoryController extends Controller
             if (!empty($category) && str_contains($category, ',')) {
                 $category = explode(",", $category);
             }
-            /* questo if viene usato nel caso l'utente mandi solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach */
+            /* this if is used in case the user sends only one value which would produce a string and thus cause a problem in the foreach */
             if (is_string($category)) {
                 $category = [$category];
             }
@@ -77,10 +77,9 @@ class CategoryController extends Controller
             throw ValidationException::withMessages(['Error!' => "You cannot choose a name that already exists for your garbage category."]);
         }
         if ($request->category == ''){
-            //throw an error if the name already exists
+            //throw an error if the string is empty
             throw ValidationException::withMessages(['Error!' => "You can't set an empty value"]);
         }
-        //update the item if it doesn't
         Category::find($id)->update(['cat_name' => strtolower($request->category)]);
         return redirect('/list');
     }
@@ -91,6 +90,7 @@ class CategoryController extends Controller
         if (count($existingCategories) > 0) {
             $existingCategories = array_merge_recursive(...$existingCategories)['cat_name'];
         }
+        /* this if is used in case the user has only one value which would produce a string and thus cause a problem in the categorydelete.blade.php foreach */
         if (is_string($existingCategories)) {
             $existingCategories = [$existingCategories];
         }

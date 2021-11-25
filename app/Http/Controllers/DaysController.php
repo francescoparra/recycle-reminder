@@ -19,7 +19,7 @@ class DaysController extends Controller
         if (count($existingDays) > 0) {
             $existingDays = array_merge_recursive(...$existingDays)['day_name'];
         }
-        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach di days.blade.php */
+        /* this if is used in case the user has only one value which would produce a string and thus cause a problem in the days.blade.php foreach */
         if (is_string($existingDays)) {
             $existingDays = [$existingDays];
         }
@@ -53,7 +53,7 @@ class DaysController extends Controller
         if (count($existingDays) > 0) {
             $existingDays = array_merge_recursive(...$existingDays)['day_name'];
         }
-        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach di daysdelete.blade.php */
+        /* this if is used in case the user has only one value which would produce a string and thus cause a problem in the daysdelete.blade.php foreach */
         if(is_string($existingDays)){
             $existingDays = [$existingDays];
         }
