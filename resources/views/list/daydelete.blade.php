@@ -3,9 +3,9 @@
         <main class="days-delete-main">
             <h1>Delete Days</h1>
             <div class="days-delete-div">
-                @foreach ($days as $day)
+                @foreach ($existingDays as $day)
                     <form method="POST"
-                        action="/daysdelete/{{ $existingDays->where('day_name', $day)->first()->id }}"
+                        action="/daysdelete/{{ $days->where('day_name', $day)->first()->id }}"
                         id="days-delete-form" class="days-delete-form">
                         <div class="days-delete-input-div">
                             @csrf
@@ -20,7 +20,7 @@
                 <div class="no-delete">
                     <h2>No Days To Delete</h2>
                 </div>
-                @endif
+            @endif
             <div class="buttons-div">
                 <a href="/list" class="back-button">Go List</a>
                 <a href="/days" class="next-button">Go Days</a>

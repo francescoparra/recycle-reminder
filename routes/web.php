@@ -40,6 +40,8 @@ Route::get('category', [CategoryController::class, 'create'])->middleware('auth'
 Route::post('category', [CategoryController::class, 'store'])->middleware('auth');
 Route::get('categorydelete', [CategoryController::class, 'delete'])->middleware('auth');
 Route::delete('categorydelete/{category}', [CategoryController::class, 'destroy'])->middleware('auth');
+Route::get('categoryupdate', [CategoryController::class, 'update'])->middleware('auth');
+Route::put('categoryupdate/{category}', [CategoryController::class, 'edit'])->middleware('auth');
 
 Route::get('complete', [GarbageScheduleController::class, 'create'])->middleware('auth');
 Route::post('complete', [GarbageScheduleController::class, 'store'])->middleware('auth');

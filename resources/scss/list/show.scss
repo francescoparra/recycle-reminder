@@ -38,6 +38,10 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                .update-button{
+                    text-decoration: none;
+                    color: inherit;
+                }
             }
 
             .single-list-div {

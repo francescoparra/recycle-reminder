@@ -1,6 +1,6 @@
 @import "./basics/layout";
 @import "./pages/home";
-@import "./components/register-login";
+@import "./pages/register-login";
 @import "./components/success";
 @import "./list/days";
 @import "./list/category";
@@ -9,4 +9,5 @@
 @import "./list/delete/daysdelete";
 @import "./list/delete/categorydelete";
 @import "./pages/error";
+@import "./list/update/categoryupdate";
 

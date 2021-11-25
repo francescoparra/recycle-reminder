@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Day;
+use Illuminate\Http\Request;
 
 class DaysController extends Controller
 {
@@ -25,9 +26,9 @@ class DaysController extends Controller
 
         return view('list.days', compact('days', 'existingDays'));
     }
-    public function store()
+    public function store(Request $request)
     {
-        $days = request()->validate([
+        $days = $request->validate([
             "day_name" => "required|array|min:1"
         ])["day_name"];
         
@@ -52,14 +53,17 @@ class DaysController extends Controller
         if (count($existingDays) > 0) {
             $existingDays = array_merge_recursive(...$existingDays)['day_name'];
         }
+        /* questo if viene usato nel caso l'utente abbia solo un valore che producerebbe una stringa e quindi causerebbe un problema nel foreach di daysdelete.blade.php */
+        if(is_string($existingDays)){
+            $existingDays = [$existingDays];
+        }
         $days = Day::all()->where('user_id', auth()->user()->id);
         return view('list.daydelete', compact('existingDays', 'days'));
     }
 
     public function destroy($id)
     {
-        $day = Day::find($id);
-        $day->delete();
+        Day::find($id)->delete();
 
         return redirect('/daysdelete');
     }

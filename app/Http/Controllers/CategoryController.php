@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
@@ -28,10 +29,10 @@ class CategoryController extends Controller
 
         return view("list.category", compact('standardCategories', 'existingCategories',  'diff'));
     }
-    
-    public function store()
+
+    public function store(Request $request)
     {
-        $catName = request()->validate([
+        $catName = $request->validate([
             "cat_name" => "required|array|min:1"
         ])['cat_name'];
 
@@ -62,11 +63,36 @@ class CategoryController extends Controller
         return redirect('/complete');
     }
 
+    public function update()
+    {
+        $existingCategories = Category::all()->where('user_id', auth()->user()->id);
+
+        return view('list.categoryupdate', compact('existingCategories'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        if (Category::where('cat_name', $request->category)->exists()) {
+            //throw an error if the name already exists
+            throw ValidationException::withMessages(['Error!' => "You cannot choose a name that already exists for your garbage category."]);
+        }
+        if ($request->category == ''){
+            //throw an error if the name already exists
+            throw ValidationException::withMessages(['Error!' => "You can't set an empty value"]);
+        }
+        //update the item if it doesn't
+        Category::find($id)->update(['cat_name' => strtolower($request->category)]);
+        return redirect('/list');
+    }
+
     public function delete()
     {
         $existingCategories = Category::all()->where('user_id', auth()->user()->id)->toArray();
         if (count($existingCategories) > 0) {
             $existingCategories = array_merge_recursive(...$existingCategories)['cat_name'];
+        }
+        if (is_string($existingCategories)) {
+            $existingCategories = [$existingCategories];
         }
         $categories = Category::all()->where('user_id', auth()->user()->id);
         return view('list.categorydelete', compact('existingCategories', 'categories'));
@@ -74,8 +100,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        Category::find($id)->delete();
 
         return redirect('/categorydelete');
     }

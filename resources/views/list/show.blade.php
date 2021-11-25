@@ -8,7 +8,9 @@
                 <div class="list-div">
                     <div class="type-list-div">
                         <h3>Day</h3>
-                        <h3>Category</h3>
+                        <h3>Category
+                            <a class="update-button" href="/categoryupdate"><i class="far fa-edit"></i></a>
+                        </h3>
                         <h3>Time</h3>
                         <h3>Delete</h3>
                     </div>

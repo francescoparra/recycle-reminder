@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GarbageSchedule;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
@@ -20,9 +21,9 @@ class GarbageScheduleController extends Controller
             'days' => $days,
         ], compact('existingList'));
     }
-    public function store()
+    public function store(Request $request)
     {
-        $lists = request()->validate([
+        $lists = $request->validate([
             "list" => "required|array|min:1"
         ])["list"];
 
@@ -74,8 +75,7 @@ class GarbageScheduleController extends Controller
     }
     public function destroy($id)
     {
-        $list = GarbageSchedule::find($id);
-        $list->delete();
+        GarbageSchedule::find($id)->delete();
 
         return redirect('/list');
     }
